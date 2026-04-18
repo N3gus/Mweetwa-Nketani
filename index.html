@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mweetwa Mweembo Nketani | Sales Engineer · Bravo Technology (Z) Ltd</title>
+  <meta name="description" content="Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure. Bridging the gap between complex technical architecture and strategic business value.">
+  <link rel="canonical" href="https://n3gus.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EMN%3C/text%3E%3C/svg%3E">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mweetwa Mweembo Nketani",
+    "jobTitle": "Sales Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Bravo Technology (Z) Ltd"
+    },
+    "knowsAbout": ["SCADA", "IoT", "Fleet Telematics", "Network Infrastructure", "Sales Engineering"],
+    "sameAs": [
+      "https://www.linkedin.com/in/mweetwa-nketani-a62825212/",
+      "https://github.com/N3gus"
+    ],
+    "telephone": "+260777977163",
+    "email": "mweetwanketani@gmail.com",
+    "url": "https://n3gus.github.io/"
+  }
+  </script>
+  
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fc;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --text-heading: #0d1117;
+      --text-body: #4a5568;
+      --accent: #2563eb;
+      --accent-secondary: #1d4ed8;
+      --border: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-glow: 0 20px 40px rgba(37, 99, 235, 0.15);
+      --radius-sm: 0.5rem;
+      --radius: 1rem;
+      --radius-lg: 2rem;
+      --radius-full: 9999px;
+      --transition: 300ms ease;
+    }
+    
+    [data-theme="dark"] {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-surface: #161b22;
+      --bg-card: #1c2128;
+      --text-heading: #f0f6fc;
+      --text-body: #8b949e;
+      --accent: #3b82f6;
+      --accent-secondary: #a855f7;
+      --border: #30363d;
+      --shadow-glow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg-primary: #0d1117;
+        --bg-secondary: #161b22;
+        --bg-surface: #161b22;
+        --bg-card: #1c2128;
+        --text-heading: #f0f6fc;
+        --text-body: #8b949e;
+        --accent: #3b82f6;
+        --accent-secondary: #a855f7;
+        --border: #30363d;
+        --shadow-glow: 0 20px 40px rgba(59, 130, 246, 0.2);
+      }
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      background-color: var(--bg-primary);
+      transition: color var(--transition), background-color var(--transition);
+    }
+    
+    h1, h2, h3 {
+      color: var(--text-heading);
+      font-weight: 800;
+      line-height: 1.2;
+      transition: color var(--transition);
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 1.5rem;
+      transition: background-color var(--transition), backdrop-filter var(--transition);
+    }
+    
+    .navbar.scrolled {
+      background-color: rgba(var(--bg-surface-rgb, 255, 255, 255), 0.8);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    
+    [data-theme="dark"] .navbar.scrolled {
+      background-color: rgba(22, 27, 34, 0.8);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .navbar.scrolled {
+        background-color: rgba(22, 27, 34, 0.8);
+      }
+    }
+    
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: color var(--transition);
+    }
+    
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      font-weight: 500;
+      position: relative;
+      transition: color var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .theme-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+      transform: scale(1.05);
+    }
+    
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      margin-left: 1rem;
+    }
+    
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-heading);
+      transition: all var(--transition);
+    }
+    
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition);
+    }
+    
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 0.75rem 0;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .hamburger {
+        display: none;
+      }
+      .mobile-menu {
+        display: none;
+      }
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      section {
+        padding: 6rem 2rem;
+      }
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 6rem;
+      background: var(--bg-primary);
+    }
+    
+    .hero-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.5rem;
+      transition: all var(--transition);
+    }
+    
+    [data-theme="dark"] .badge {
+      background: rgba(59, 130, 246, 0.15);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .badge {
+        background: rgba(59, 130, 246, 0.15);
+      }
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    
+    .hero h1 .accent {
+      color: var(--accent);
+      display: block;
+      transition: color var(--transition);
+    }
+    
+    .subheadline {
+      font-size: 1.25rem;
+      color: var(--text-body);
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: var(--radius-full);
+      transition: all var(--transition);
+    }
+    
+    .btn-primary {
+      background: var(--text-heading);
+      color: var(--bg-primary);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-heading);
+      border: 2px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .pulse-glow {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+      50% { box-shadow: 0 0 20px 5px rgba(37, 99, 235, 0.2); }
+    }
+    
+    [data-theme="dark"] .pulse-glow {
+      animation: pulseGlowDark 2s ease-in-out infinite;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .pulse-glow {
+        animation: pulseGlowDark 2s ease-in-out infinite;
+      }
+    }
+    
+    @keyframes pulseGlowDark {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+      50% { box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.2); }
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .hero-image .img-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #6b7280;
+      overflow: hidden;
+    }
+    
+    [data-theme="dark"] .hero-image .img-placeholder {
+      background: linear-gradient(135deg, #1c2128 0%, #161b22 100%);
+      color: #8b949e;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .hero-image .img-placeholder {
+        background: linear-gradient(135deg, #1c2128 0%, #161b22 100%);
+        color: #8b949e;
+        box-shadow: var(--shadow-glow);
+      }
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Technical Bridge */
+    .technical-bridge {
+      background: var(--bg-secondary);
+      transition: background-color var(--transition);
+    }
+    
+    .bridge-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .bridge-grid {
+        grid-template-columns: 45% 55%;
+        gap: 4rem;
+      }
+    }
+    
+    .bridge-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 1.5rem;
+    }
+    
+    .bridge-content p {
+      margin-bottom: 1.25rem;
+    }
+    
+    .bridge-image .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: #6b7280;
+    }
+    
+    [data-theme="dark"] .bridge-image .img-placeholder {
+      background: linear-gradient(135deg, #1c2128 0%, #161b22 100%);
+      color: #8b949e;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .bridge-image .img-placeholder {
+        background: linear-gradient(135deg, #1c2128 0%, #161b22 100%);
+        color: #8b949e;
+      }
+    }
+    
+    /* Skills */
+    .skills {
+      background: var(--bg-primary);
+    }
+    
+    .skills-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+    
+    .skills-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 0.75rem;
+    }
+    
+    .skills-header p {
+      color: var(--text-body);
+    }
+    
+    .skills-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+    
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-icon.blue {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+    }
+    
+    [data-theme="dark"] .skill-icon.blue {
+      background: rgba(59, 130, 246, 0.15);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .skill-icon.blue {
+        background: rgba(59, 130, 246, 0.15);
+      }
+    }
+    
+    .skill-icon.grey {
+      background: var(--bg-secondary);
+      color: var(--text-body);
+    }
+    
+    .skill-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+    
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9375rem;
+    }
+    
+    .skill-item span:first-child {
+      font-size: 1rem;
+    }
+    
+    /* Contact */
+    .contact {
+      background: #0d1117;
+      color: #8b949e;
+    }
+    
+    .contact h2 {
+      color: #f0f6fc;
+    }
+    
+    .contact-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    .contact-header h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: #1c2128;
+      color: #f0f6fc;
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      transition: all var(--transition);
+      border: 1px solid #30363d;
+    }
+    
+    .contact-btn:hover {
+      background: #30363d;
+      transform: translateY(-2px);
+      border-color: #3b82f6;
+    }
+    
+    .contact-btn span:first-child {
+      font-size: 1.25rem;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 2rem 1.5rem;
+      background: var(--bg-surface);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-body);
+      border-top: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    
+    /* Scroll Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
+    }
+    
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-container">
+      <a href="#" class="logo" aria-label="Home">MN.</a>
+      
+      <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span id="themeIcon">🌙</span>
+        </button>
+        
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <span class="badge">Sales Engineer · Bravo Technology (Z) Ltd</span>
+          <h1>
+            Mweetwa Mweembo
+            <span class="accent">Nketani</span>
+          </h1>
+          <p class="subheadline">Bridging the gap between complex technical architecture and strategic business value.</p>
+          <p>Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure. I don't just explain how technology works — I demonstrate why it matters to your bottom line.</p>
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary pulse-glow">Get in Touch</a>
+            <a href="#skills" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image reveal">
+          <div class="img-placeholder">
+            <span>Photo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="technical-bridge">
+    <div class="container">
+      <div class="bridge-grid">
+        <div class="bridge-content reveal">
+          <h2>The Technical Bridge</h2>
+          <p>With a background in Computer Engineering and hands-on experience across mining and water utility sectors, I specialise in translating sophisticated technology into clear, actionable business solutions for enterprise clients.</p>
+          <p>From architecting SCADA integration to leading a fleet telematics rollout using Teltonika FMU130 devices — my work is defined by measurable operational impact and empathetic technical communication.</p>
+          <p>Currently representing Bravo Technology (Z) Ltd as a Sales Engineer, bringing both the technical depth to architect solutions and the commercial fluency to win trust at every stage of the sales cycle.</p>
+        </div>
+        <div class="bridge-image reveal">
+          <div class="img-placeholder">
+            <span>Image</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="skills-header reveal">
+        <h2>Expertise & Skills</h2>
+        <p>A balanced toolkit designed for the modern sales cycle — combining deep technical fluency with commercial intuition.</p>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon blue" aria-hidden="true">&lt;/&gt;</div>
+          <h3>Technical Foundation</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span>⚙️</span> SCADA Integration</div>
+            <div class="skill-item"><span>📡</span> IoT Sensor Systems</div>
+            <div class="skill-item"><span>🛰️</span> Fleet Telematics (FMU130)</div>
+            <div class="skill-item"><span>🌐</span> Network Infrastructure</div>
+            <div class="skill-item"><span>🐧</span> Linux Systems</div>
+            <div class="skill-item"><span>🔌</span> CCTV & Surveillance</div>
+            <div class="skill-item"><span>🐍</span> Python & Scripting</div>
+            <div class="skill-item"><span>🗄️</span> SQL & PostgreSQL</div>
+          </div>
+        </div>
+        
+        <div class="skill-card reveal">
+          <div class="skill-icon grey" aria-hidden="true">👥</div>
+          <h3>Sales Engineering</h3>
+          <div class="skill-list">
+            <div class="skill-item"><span>🎯</span> Technical Discovery</div>
+            <div class="skill-item"><span>🖥️</span> Product Storytelling</div>
+            <div class="skill-item"><span>🤝</span> Objection Handling</div>
+            <div class="skill-item"><span>💡</span> Business Acumen</div>
+            <div class="skill-item"><span>🏗️</span> Solution Architecture</div>
+            <div class="skill-item"><span>📄</span> Technical Documentation</div>
+            <div class="skill-item"><span>👥</span> Stakeholder Management</div>
+            <div class="skill-item"><span>🔁</span> Cross-functional Collaboration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-header reveal">
+        <h2>Let's build something together.</h2>
+        <p>Whether you're looking for a technical partner for your sales team or want to discuss SCADA, IoT, or telematics solutions in the mining and utilities sectors — I'm always open to new connections.</p>
+      </div>
+      
+      <div class="contact-links reveal">
+        <a href="tel:+260777977163" class="contact-btn">
+          <span>📞</span>
+          <span>+260 77 7977163</span>
+        </a>
+        <a href="mailto:mweetwanketani@gmail.com" class="contact-btn">
+          <span>✉️</span>
+          <span>Email Me</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mweetwa-nketani-a62825212/" class="contact-btn" target="_blank" rel="noopener noreferrer">
+          <span>💼</span>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/N3gus" class="contact-btn" target="_blank" rel="noopener noreferrer">
+          <span>🐙</span>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Mweetwa Mweembo Nketani | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+      themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    } else if (prefersDark) {
+      html.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('theme', newTheme);
+    });
+    
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', { passive: true }, () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // Scroll reveal animation (re-animates on scroll)
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
