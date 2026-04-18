@@ -11,6 +11,9 @@
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
     <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
     
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdgKN6tNLi0XWa8Cj2cJI2wUvB4oPHR2JSuhjVIQaV0cPV4cHJyU5tRCvJllMgR1fMw" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- SASS Compiled CSS -->
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
     
@@ -30,7 +33,6 @@
                 <a href="{{ site.baseurl }}/#about" class="nav-link">About</a>
                 <a href="{{ site.baseurl }}/#skills" class="nav-link">Skills</a>
                 <a href="{{ site.baseurl }}/#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">??</button>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
@@ -59,27 +61,26 @@
     <script>
         // Enhanced JavaScript for Redesigned Portfolio
         
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
+        // System-based Theme Detection
         const html = document.documentElement;
         
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Check system theme preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const systemTheme = prefersDarkScheme.matches ? 'dark' : 'light';
+        
+        // Check for saved theme preference, otherwise use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const currentTheme = savedTheme || systemTheme;
+        
         html.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
         
-        themeToggle.addEventListener('click', () => {
-            const theme = html.getAttribute('data-theme');
-            const newTheme = theme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
+        // Listen for system theme changes
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                const newTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+            }
         });
-        
-        function updateThemeIcon(theme) {
-            themeToggle.textContent = theme === 'dark' ? '??' : '??';
-        }
         
         // Mobile Navigation
         const hamburger = document.getElementById('hamburger');

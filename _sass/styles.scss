@@ -331,10 +331,10 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 60% 40%;
-    gap: var(--space-16);
+    grid-template-columns: 55% 45%;
+    gap: var(--space-12);
     align-items: center;
-    min-height: 90vh;
+    min-height: 85vh;
     position: relative;
     overflow: hidden;
 }
@@ -678,10 +678,15 @@ nav {
 }
 
 .skill-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: var(--space-8);
     margin-bottom: var(--space-20);
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    flex: 1;
+    min-width: 280px;
 }
 
 .skill-card {
