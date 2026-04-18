@@ -1,0 +1,26 @@
+# Jekyll configuration for GitHub Pages
+title: Mweetwa Mweembo Nketani
+description: Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure.
+baseurl: ""
+url: "https://n3gus.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# GitHub Pages specific
+github:
+  is_project_page: false
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md
+  - windsurf_deployment.yaml
