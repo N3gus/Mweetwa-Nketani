@@ -33,6 +33,9 @@
                 <a href="{{ site.baseurl }}/#about" class="nav-link">About</a>
                 <a href="{{ site.baseurl }}/#skills" class="nav-link">Skills</a>
                 <a href="{{ site.baseurl }}/#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
@@ -59,10 +62,15 @@
 
     <!-- JavaScript -->
     <script>
+        // Add JS-enabled class for progressive enhancement
+        document.documentElement.classList.add('js-enabled');
+        
         // Enhanced JavaScript for Redesigned Portfolio
         
-        // System-based Theme Detection
+        // System-based Theme Detection with Manual Toggle
         const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
         
         // Check system theme preference
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -73,12 +81,29 @@
         const currentTheme = savedTheme || systemTheme;
         
         html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
         
-        // Listen for system theme changes
+        // Update icon based on theme
+        function updateThemeIcon(theme) {
+            themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+        
+        // Theme toggle handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        // Listen for system theme changes (only if no manual preference set)
         prefersDarkScheme.addEventListener('change', (e) => {
             if (!localStorage.getItem('theme')) {
                 const newTheme = e.matches ? 'dark' : 'light';
                 html.setAttribute('data-theme', newTheme);
+                updateThemeIcon(newTheme);
             }
         });
         
@@ -214,6 +239,32 @@
             });
         });
         
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const existingToast = document.querySelector('.toast-notification');
+            if (existingToast) existingToast.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            
+            const icon = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
+            toast.innerHTML = `${icon} <span>${message}</span>`;
+            
+            document.body.appendChild(toast);
+            
+            // Trigger animation
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
         // Copy to Clipboard Functionality
         const copyButtons = document.querySelectorAll('.copy-btn');
 
@@ -221,18 +272,21 @@
             button.addEventListener('click', async (e) => {
                 e.preventDefault();
                 const textToCopy = button.getAttribute('data-copy');
+                const originalIcon = button.innerHTML;
                 
                 try {
                     await navigator.clipboard.writeText(textToCopy);
-                    button.textContent = '??';
+                    button.innerHTML = '<i class="fas fa-check"></i>';
                     button.classList.add('copied');
+                    showToast('Copied to clipboard!');
                     
                     setTimeout(() => {
-                        button.textContent = '??';
+                        button.innerHTML = originalIcon;
                         button.classList.remove('copied');
                     }, 2000);
                 } catch (err) {
                     console.error('Failed to copy text: ', err);
+                    showToast('Failed to copy', 'error');
                 }
             });
         });
@@ -261,20 +315,8 @@
             });
         }
         
-        // Respect reduced motion preferences
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
-        if (prefersReducedMotion.matches) {
-            document.querySelectorAll('*').forEach(el => {
-                const styles = window.getComputedStyle(el);
-                if (styles.animation !== 'none') {
-                    el.style.animation = 'none';
-                }
-                if (styles.transition !== 'none') {
-                    el.style.transition = 'none';
-                }
-            });
-        }
+        // Reduced motion is now handled via CSS media query
+        // This script section reserved for future accessibility enhancements
     </script>
 </body>
 </html>
