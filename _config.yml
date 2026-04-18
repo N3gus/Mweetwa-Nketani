@@ -1,8 +1,8 @@
 # Site settings
 title: "Mweetwa Mweembo Nketani | Sales Engineer"
 description: "Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure for mining and utilities clients across Zambia."
-url: "https://yourusername.github.io"
-baseurl: "/mweetwa-portfolio"
+url: "https://n3gus.github.io"
+baseurl: "/Mweetwa-Nketani"
 
 # Build settings
 markdown: kramdown
@@ -34,6 +34,7 @@ include:
 sass:
   sass_dir: _sass
   style: compressed
+  sourcemap: never
 
 # Collections
 collections:
