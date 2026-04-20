@@ -744,6 +744,41 @@
       font-weight: 600;
     }
     
+    .company-link {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+    
+    .company-link strong {
+      color: var(--accent-primary);
+      font-weight: 700;
+      transition: color var(--transition-fast);
+    }
+    
+    .company-link:hover strong {
+      color: var(--accent-secondary);
+    }
+    
+    .company-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition-fast);
+    }
+    
+    .company-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
     /* Technical Bridge */
     .technical-bridge {
       background: var(--bg-secondary);
@@ -1108,7 +1143,7 @@
           
           <p class="tagline">Sales Engineer bridging technical complexity and business value</p>
           
-          <p class="description">At <strong>Bravo Technology (Z) Ltd</strong>, I specialize in SCADA systems, IoT implementations, and fleet telematics — turning technical architecture into measurable ROI for mining and utility clients.</p>
+          <p class="description">At <a href="https://bravotechafrica.com" target="_blank" rel="noopener noreferrer" class="company-link"><strong>Bravo Technology (Z) Ltd</strong></a>, I specialize in SCADA systems, IoT implementations, and fleet telematics — turning technical architecture into measurable ROI for mining and utility clients.</p>
           
           <div class="btn-group">
             <a href="#contact" class="btn btn-primary">
