@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://n3gus.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EMN%3C/text%3E%3C/svg%3E">
   
   <script type="application/ld+json">
@@ -39,6 +39,7 @@
     :root {
       /* Typography */
       --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
       
       /* Colors - Light Mode (WCAG AAA compliant) */
       --bg-primary: #fafafa;
@@ -267,7 +268,10 @@
       right: 0;
       z-index: 100;
       padding: 1rem 1.5rem;
-      transition: all var(--transition);
+      transition: background-color var(--transition), 
+                  backdrop-filter var(--transition),
+                  box-shadow var(--transition),
+                  transform var(--transition);
     }
     
     .navbar.scrolled {
@@ -310,8 +314,15 @@
     .logo {
       font-weight: 900;
       font-size: 1.5rem;
-      color: var(--accent);
-      transition: color var(--transition);
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: opacity var(--transition);
+    }
+    
+    .logo:hover {
+      opacity: 0.8;
     }
     
     .nav-links {
@@ -327,7 +338,7 @@
     }
     
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--accent-primary);
     }
     
     .nav-links a::after {
@@ -337,7 +348,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: var(--accent-gradient);
       transition: width var(--transition);
     }
     
@@ -438,25 +449,69 @@
       margin: 0 auto;
     }
     
-    /* Hero */
+    /* Hero - Mobile First */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding-top: 6rem;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
       background: var(--bg-primary);
+      position: relative;
+      overflow: hidden;
     }
     
     .hero-grid {
       display: grid;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: center;
+    }
+    
+    .hero-content {
+      max-width: 100%;
+      order: 2;
+    }
+    
+    .hero-image {
+      order: 1;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    
+    @media (min-width: 768px) {
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+      }
+      
+      .hero-grid {
+        gap: 3rem;
+      }
+      
+      .hero-image {
+        max-width: 320px;
+      }
+      
+      .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
     }
     
     @media (min-width: 1024px) {
       .hero-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 55% 45%;
         gap: 4rem;
+      }
+      
+      .hero-content {
+        order: 1;
+        max-width: none;
+      }
+      
+      .hero-image {
+        order: 2;
+        max-width: none;
       }
     }
     
@@ -481,7 +536,7 @@
     .badge-dot {
       width: 6px;
       height: 6px;
-      background: #22c55e;
+      background: #16a34a;
       border-radius: var(--radius-full);
       animation: pulse-dot 2s ease-in-out infinite;
     }
@@ -510,15 +565,21 @@
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 6rem);
-      font-weight: 900;
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 8vw, 4.5rem);
+      font-weight: 800;
       margin-bottom: 1rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
     
     .hero h1 .accent {
-      color: var(--accent);
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       display: block;
-      transition: color var(--transition);
+      transition: opacity var(--transition);
     }
     
     .subheadline {
@@ -706,9 +767,21 @@
     
     .image-frame {
       position: relative;
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-full);
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      aspect-ratio: 1;
+    }
+    
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+    
+    .image-frame:hover img {
+      transform: scale(1.03);
     }
     
     .image-frame::after {
@@ -831,7 +904,7 @@
       }
     }
     
-    /* Skills */
+    /* Skills - Bento Grid Layout */
     .skills {
       background: var(--bg-primary);
     }
@@ -839,26 +912,53 @@
     .skills-header {
       text-align: center;
       max-width: 600px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .skills-header {
+        margin-bottom: 3.5rem;
+      }
     }
     
     .skills-header h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 0.75rem;
     }
     
     .skills-header p {
       color: var(--text-body);
+      font-size: 1.125rem;
     }
     
-    .skills-grid {
+    /* Bento Grid - Mobile First */
+    .skills-bento {
       display: grid;
-      gap: 2rem;
+      gap: 1rem;
+      grid-template-columns: 1fr;
     }
     
-    @media (min-width: 768px) {
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
+    @media (min-width: 640px) {
+      .skills-bento {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .skills-bento {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 1.5rem;
+      }
+      
+      .skill-card:nth-child(1) {
+        grid-row: span 2;
+      }
+      
+      .skill-card:nth-child(4) {
+        grid-column: span 2;
       }
     }
     
@@ -872,11 +972,18 @@
       backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
-      padding: var(--space-8);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       transition: all var(--transition);
       overflow: hidden;
+      height: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .skill-card {
+        padding: 2rem;
+      }
     }
     
     .skill-card::before {
@@ -921,8 +1028,8 @@
     }
     
     .skill-icon.blue {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--accent);
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent-primary);
     }
     
     [data-theme="dark"] .skill-icon.blue {
@@ -1063,7 +1170,7 @@
       transition: all var(--transition);
     }
     
-    /* Scroll Animations */
+    /* Scroll Animations with Stagger */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
@@ -1073,6 +1180,82 @@
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    
+    .reveal[data-delay="0"].is-visible { transition-delay: 0ms; }
+    .reveal[data-delay="100"].is-visible { transition-delay: 100ms; }
+    .reveal[data-delay="200"].is-visible { transition-delay: 200ms; }
+    .reveal[data-delay="300"].is-visible { transition-delay: 300ms; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-full);
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all var(--transition);
+      z-index: 99;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .scroll-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .scroll-to-top:focus-visible {
+      outline: 3px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+    
+    .scroll-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .scroll-to-top {
+        bottom: 2rem;
+        right: 2rem;
+      }
+    }
+    
+    /* High Contrast Mode Support */
+    @media (prefers-contrast: high) {
+      .skill-card {
+        border-width: 2px;
+      }
+      
+      .btn-primary {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+      }
     }
     
     /* Utility */
@@ -1188,15 +1371,15 @@
         <p>Deep technical fluency paired with commercial intuition</p>
       </header>
       
-      <div class="skills-grid">
-        <article class="skill-card reveal">
+      <div class="skills-bento">
+        <article class="skill-card reveal" data-delay="0">
           <div class="skill-icon blue" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
             </svg>
           </div>
           <h3>Technical Foundation</h3>
-          <p class="skill-description">Core infrastructure and integration expertise for mission-critical systems</p>
+          <p class="skill-description">Core infrastructure and integration expertise for mission-critical systems in mining and utility sectors.</p>
           <div class="skill-list">
             <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
@@ -1222,25 +1405,17 @@
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
               CCTV & Surveillance
             </div>
-            <div class="skill-item">
-              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
-              Python & Scripting
-            </div>
-            <div class="skill-item">
-              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-              SQL & PostgreSQL
-            </div>
           </div>
         </article>
         
-        <article class="skill-card reveal">
+        <article class="skill-card reveal" data-delay="100">
           <div class="skill-icon grey" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.592-2.641m-7.032 4.628c.982.513 2.1.815 3.282.815 3.024 0 5.594-1.692 6.813-4.146M6.375 15.128a3.375 3.375 0 016.75 0m-9.375 0a3.375 3.375 0 116.75 0" />
             </svg>
           </div>
           <h3>Sales Engineering</h3>
-          <p class="skill-description">Commercial capabilities that drive technical solutions to business outcomes</p>
+          <p class="skill-description">Commercial capabilities that translate technical solutions into measurable business outcomes.</p>
           <div class="skill-list">
             <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
@@ -1258,21 +1433,61 @@
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
               Business Acumen
             </div>
+          </div>
+        </article>
+        
+        <article class="skill-card reveal" data-delay="200">
+          <div class="skill-icon blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.592-2.641m-7.032 4.628c.982.513 2.1.815 3.282.815 3.024 0 5.594-1.692 6.813-4.146M6.375 15.128a3.375 3.375 0 016.75 0m-9.375 0a3.375 3.375 0 116.75 0" />
+            </svg>
+          </div>
+          <h3>Development Skills</h3>
+          <p class="skill-description">Programming and database expertise for automation and data-driven solutions.</p>
+          <div class="skill-list">
             <div class="skill-item">
-              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-              Solution Architecture
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+              Python & Scripting
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+              SQL & PostgreSQL
             </div>
             <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               Technical Documentation
             </div>
             <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Cross-functional Collaboration
+            </div>
+          </div>
+        </article>
+        
+        <article class="skill-card reveal" data-delay="300">
+          <div class="skill-icon grey" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.266-4.188.402-6.378.402-2.19 0-4.29-.136-6.378-.402-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 7.125c0 1.061-.636 2.022-1.605 2.448a5.226 5.226 0 01-4.167.078 5.226 5.226 0 01-4.167-.078 2.623 2.623 0 01-1.605-2.448M20.25 14.15l-3.756-2.157m0 0a2.625 2.625 0 00-2.625 0l-3.756 2.157m7.497 0a2.625 2.625 0 012.625 0l3.756 2.157m-3.756-2.157a2.625 2.625 0 012.625 0l3.756 2.157" />
+            </svg>
+          </div>
+          <h3>Project & Client Management</h3>
+          <p class="skill-description">End-to-end project delivery and stakeholder engagement for enterprise implementations.</p>
+          <div class="skill-list">
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              Solution Architecture
+            </div>
+            <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
               Stakeholder Management
             </div>
             <div class="skill-item">
-              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-              Cross-functional Collaboration
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Project Delivery
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              ROI Optimization
             </div>
           </div>
         </article>
@@ -1321,6 +1536,12 @@
       <p>&copy; 2026 Mweetwa Mweembo Nketani | All rights reserved.</p>
     </div>
   </footer>
+
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
 
   <script>
     /* ========================================
@@ -1419,7 +1640,12 @@
     
     // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', (e) => {
+        // Add active state styling
+        mobileMenu.querySelectorAll('a').forEach(l => l.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'page');
+        closeMenu();
+      });
     });
     
     // Close on escape key
@@ -1430,24 +1656,48 @@
     });
     
     /* ========================================
-       NAVBAR SCROLL EFFECTS
+       NAVBAR SCROLL EFFECTS & SCROLL TO TOP
        ======================================== */
     const navbar = document.querySelector('.navbar');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    let lastScroll = 0;
     
     function updateNavbar() {
       const currentScroll = window.pageYOffset;
       
+      // Add/remove scrolled class
       if (currentScroll > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
       
-      // Scroll progress indicator
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (currentScroll / docHeight) * 100;
-      navbar.style.setProperty('--scroll-progress', `${scrollPercent}%`);
+      // Show/hide scroll to top button
+      if (currentScroll > 500) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+      
+      // Hide navbar on scroll down, show on scroll up (mobile only)
+      if (window.innerWidth < 768) {
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
+      }
+      
+      lastScroll = currentScroll;
     }
+    
+    // Scroll to top functionality
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
     
     window.addEventListener('scroll', updateNavbar, { passive: true });
     updateNavbar();
