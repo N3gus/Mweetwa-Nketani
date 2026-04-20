@@ -771,13 +771,28 @@
       overflow: hidden;
       box-shadow: var(--shadow-lg);
       aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--border) 100%);
     }
     
     .image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform var(--transition-slow);
+      transition: transform var(--transition-slow), opacity var(--transition);
+      opacity: 1;
+    }
+    
+    .image-frame img[loading] {
+      opacity: 0;
+    }
+    
+    .image-frame img.loaded,
+    .image-frame img:not([loading]) {
+      opacity: 1;
+    }
+    
+    .image-frame img.error {
+      display: none;
     }
     
     .image-frame:hover img {
@@ -791,6 +806,43 @@
       border-radius: inherit;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
       pointer-events: none;
+    }
+    
+    /* Image placeholder fallback */
+    .image-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-gradient);
+      color: white;
+      font-size: 3rem;
+      font-weight: 800;
+      font-family: var(--font-serif);
+    }
+    
+    .image-placeholder.small {
+      font-size: 1.5rem;
+    }
+    
+    .image-frame img:not(.error) + .image-placeholder {
+      display: none;
+    }
+    
+    /* Bridge image styling */
+    .bridge-image .image-frame {
+      border-radius: var(--radius-lg);
+    }
+    
+    .bridge-image .image-frame img {
+      object-fit: contain;
+      padding: 2rem;
+      background: white;
+    }
+    
+    [data-theme="dark"] .bridge-image .image-frame img {
+      background: var(--bg-surface);
     }
     
     .greeting {
@@ -1341,7 +1393,13 @@
         
         <figure class="hero-image reveal">
           <div class="image-frame">
-            <img src="https://file.notion.so/f/f/ca87fe6c-0522-4ef9-8be1-a6769345ef0e/b1fa29fb-9ff3-4855-a4f2-e8c37873600f/photo_2026-04-02_17-09-27.jpg?table=block&id=c9d90a76-30e3-43db-9dea-4112100f0051&spaceId=ca87fe6c-0522-4ef9-8be1-a6769345ef0e&expirationTimestamp=1776549600000&signature=XXfQaxDFHbXzQmh7rdu9RoOuhFdLGXQzDg4a3ERtpD8&downloadName=photo_2026-04-02_17-09-27.jpg" alt="Portrait of Mweetwa Nketani, Sales Engineer" loading="eager" decoding="async">
+            <img src="assets/photo.png" 
+                 alt="Portrait of Mweetwa Nketani, Sales Engineer" 
+                 loading="eager" 
+                 decoding="async"
+                 onload="this.classList.add('loaded')"
+                 onerror="this.classList.add('error'); this.nextElementSibling.style.display='flex'">
+            <div class="image-placeholder">MN</div>
           </div>
         </figure>
       </div>
@@ -1358,7 +1416,15 @@
           <p>Currently representing Bravo Technology (Z) Ltd as a Sales Engineer, bringing both the technical depth to architect solutions and the commercial fluency to win trust at every stage of the sales cycle.</p>
         </div>
         <div class="bridge-image reveal">
-          <img src="https://file.notion.so/f/f/ca87fe6c-0522-4ef9-8be1-a6769345ef0e/41b92a08-10fd-499a-bf6e-3dc4b44a324f/Bravo-Logo.jpg?table=block&id=3464b4a1-df3a-80ca-b7b7-eae582894784&spaceId=ca87fe6c-0522-4ef9-8be1-a6769345ef0e&expirationTimestamp=1776549600000&signature=uR9bjc5vKZe2ilgExl8Rml83_f7WmLNmXsmheH7yfhk&downloadName=Bravo-Logo.jpg" alt="Bravo Technology (Z) Ltd Logo" loading="lazy" decoding="async">
+          <div class="image-frame">
+            <img src="assets/logo.jpg" 
+                 alt="Bravo Technology (Z) Ltd Logo" 
+                 loading="lazy" 
+                 decoding="async"
+                 onload="this.classList.add('loaded')"
+                 onerror="this.classList.add('error'); this.nextElementSibling.style.display='flex'">
+            <div class="image-placeholder small">Bravo</div>
+          </div>
         </div>
       </div>
     </div>
