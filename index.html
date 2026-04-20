@@ -6,6 +6,9 @@
   <title>Mweetwa Mweembo Nketani | Sales Engineer · Bravo Technology (Z) Ltd</title>
   <meta name="description" content="Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure. Bridging the gap between complex technical architecture and strategic business value.">
   <link rel="canonical" href="https://n3gus.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3EMN%3C/text%3E%3C/svg%3E">
   
   <script type="application/ld+json">
@@ -30,55 +33,133 @@
   </script>
   
   <style>
+    /* ========================================
+       DESIGN SYSTEM - Modern Gradient Theme
+       ======================================== */
     :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fc;
+      /* Typography */
+      --font-display: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      /* Colors - Light Mode (WCAG AAA compliant) */
+      --bg-primary: #fafafa;
+      --bg-secondary: #f1f5f9;
       --bg-surface: #ffffff;
-      --bg-card: #ffffff;
-      --text-heading: #0d1117;
-      --text-body: #4a5568;
-      --accent: #2563eb;
-      --accent-secondary: #1d4ed8;
-      --border: #e5e7eb;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-      --shadow-glow: 0 20px 40px rgba(37, 99, 235, 0.15);
-      --radius-sm: 0.5rem;
-      --radius: 1rem;
-      --radius-lg: 2rem;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      
+      --text-heading: #0f172a;
+      --text-body: #475569;
+      --text-muted: #64748b;
+      
+      --accent-primary: #0ea5e9;
+      --accent-secondary: #6366f1;
+      --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+      
+      --border: rgba(148, 163, 184, 0.25);
+      --border-strong: rgba(148, 163, 184, 0.4);
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --shadow-glow: 0 20px 40px -10px rgba(14, 165, 233, 0.3);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+      
+      /* Border Radius */
+      --radius-sm: 0.375rem;
+      --radius: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
       --radius-full: 9999px;
-      --transition: 300ms ease;
+      
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
     }
     
     [data-theme="dark"] {
-      --bg-primary: #0d1117;
-      --bg-secondary: #161b22;
-      --bg-surface: #161b22;
-      --bg-card: #1c2128;
-      --text-heading: #f0f6fc;
-      --text-body: #8b949e;
-      --accent: #3b82f6;
-      --accent-secondary: #a855f7;
-      --border: #30363d;
-      --shadow-glow: 0 20px 40px rgba(59, 130, 246, 0.2);
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-surface: #1e293b;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      
+      --text-heading: #f8fafc;
+      --text-body: #94a3b8;
+      --text-muted: #64748b;
+      
+      --accent-primary: #38bdf8;
+      --accent-secondary: #818cf8;
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      
+      --border: rgba(148, 163, 184, 0.15);
+      --border-strong: rgba(148, 163, 184, 0.25);
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+      --shadow-glow: 0 20px 40px -10px rgba(56, 189, 248, 0.25);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg-primary: #0d1117;
-        --bg-secondary: #161b22;
-        --bg-surface: #161b22;
-        --bg-card: #1c2128;
-        --text-heading: #f0f6fc;
-        --text-body: #8b949e;
-        --accent: #3b82f6;
-        --accent-secondary: #a855f7;
-        --border: #30363d;
-        --shadow-glow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-surface: #1e293b;
+        --bg-card: rgba(30, 41, 59, 0.7);
+        --text-heading: #f8fafc;
+        --text-body: #94a3b8;
+        --text-muted: #64748b;
+        --accent-primary: #38bdf8;
+        --accent-secondary: #818cf8;
+        --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        --border: rgba(148, 163, 184, 0.15);
+        --border-strong: rgba(148, 163, 184, 0.25);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+        --shadow-glow: 0 20px 40px -10px rgba(56, 189, 248, 0.25);
+        --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
       }
     }
     
+    /* ========================================
+       REDUCED MOTION - Accessibility Priority
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      .gradient-orb {
+        animation: none !important;
+      }
+    }
+    
+    /* ========================================
+       BASE STYLES
+       ======================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -90,19 +171,73 @@
     }
     
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: var(--font-display);
       font-size: 1.125rem;
-      line-height: 1.75;
+      line-height: 1.7;
       color: var(--text-body);
       background-color: var(--bg-primary);
       transition: color var(--transition), background-color var(--transition);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
+    /* ========================================
+       ACCESSIBILITY - Focus & Skip Link
+       ======================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.75rem 1.5rem;
+      background: var(--accent-gradient);
+      color: white;
+      border-radius: var(--radius-lg);
+      font-weight: 600;
+      font-size: 0.875rem;
+      z-index: 10000;
+      transition: top var(--transition);
+      text-decoration: none;
+    }
+    
+    .skip-link:focus {
+      top: 1rem;
+      outline: 2px solid white;
+      outline-offset: 2px;
+    }
+    
+    :focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+    
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
     h1, h2, h3 {
       color: var(--text-heading);
       font-weight: 800;
       line-height: 1.2;
       transition: color var(--transition);
+      letter-spacing: -0.02em;
+    }
+    
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+    
+    h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 700;
     }
     
     a {
@@ -122,7 +257,9 @@
       background: none;
     }
     
-    /* Navbar */
+    /* ========================================
+       NAVIGATION - Redesigned
+       ======================================== */
     .navbar {
       position: fixed;
       top: 0;
@@ -130,23 +267,36 @@
       right: 0;
       z-index: 100;
       padding: 1rem 1.5rem;
-      transition: background-color var(--transition), backdrop-filter var(--transition);
+      transition: all var(--transition);
     }
     
     .navbar.scrolled {
-      background-color: rgba(var(--bg-surface-rgb, 255, 255, 255), 0.8);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.8);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: var(--shadow-sm);
     }
     
     [data-theme="dark"] .navbar.scrolled {
-      background-color: rgba(22, 27, 34, 0.8);
+      background-color: rgba(15, 23, 42, 0.8);
     }
     
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) .navbar.scrolled {
-        background-color: rgba(22, 27, 34, 0.8);
+        background-color: rgba(15, 23, 42, 0.8);
       }
+    }
+    
+    /* Scroll Progress Indicator */
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: var(--scroll-progress, 0%);
+      background: var(--accent-gradient);
+      transition: width 100ms linear;
     }
     
     .navbar-container {
@@ -310,25 +460,52 @@
       }
     }
     
+    /* ========================================
+       BADGE - Redesigned
+       ======================================== */
     .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.5rem 1rem;
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--accent);
+      background: rgba(14, 165, 233, 0.08);
+      color: var(--accent-primary);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       border-radius: var(--radius-full);
       margin-bottom: 1.5rem;
       transition: all var(--transition);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+    }
+    
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: var(--radius-full);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .badge-dot {
+        animation: none;
+      }
     }
     
     [data-theme="dark"] .badge {
-      background: rgba(59, 130, 246, 0.15);
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.25);
     }
     
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) .badge {
-        background: rgba(59, 130, 246, 0.15);
+        background: rgba(56, 189, 248, 0.1);
+        border-color: rgba(56, 189, 248, 0.25);
       }
     }
     
@@ -361,61 +538,84 @@
       flex-wrap: wrap;
     }
     
+    /* ========================================
+       BUTTONS - Redesigned with Gradients
+       ======================================== */
     .btn {
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       padding: 0.875rem 1.75rem;
       font-weight: 600;
-      font-size: 1rem;
-      border-radius: var(--radius-full);
-      transition: all var(--transition);
+      font-size: 0.9375rem;
+      letter-spacing: 0.01em;
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-fast);
+      overflow: hidden;
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                  rgba(255,255,255,0.25) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .btn:active::after {
+      opacity: 1;
+      transition: 0s;
+    }
+    
+    .btn:active {
+      transform: scale(0.98);
+    }
+    
+    .btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform var(--transition-fast);
+    }
+    
+    .btn:hover svg {
+      transform: translateX(2px);
     }
     
     .btn-primary {
-      background: var(--text-heading);
-      color: var(--bg-primary);
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
     }
     
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
+    }
+    
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
     }
     
     .btn-secondary {
       background: transparent;
       color: var(--text-heading);
-      border: 2px solid var(--border);
+      border: 1.5px solid var(--border-strong);
     }
     
     .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent-primary);
+      background: rgba(14, 165, 233, 0.05);
       transform: translateY(-2px);
     }
     
-    .pulse-glow {
-      animation: pulseGlow 2s ease-in-out infinite;
-    }
-    
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-      50% { box-shadow: 0 0 20px 5px rgba(37, 99, 235, 0.2); }
-    }
-    
-    [data-theme="dark"] .pulse-glow {
-      animation: pulseGlowDark 2s ease-in-out infinite;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .pulse-glow {
-        animation: pulseGlowDark 2s ease-in-out infinite;
-      }
-    }
-    
-    @keyframes pulseGlowDark {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-      50% { box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.2); }
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
     }
     
     .hero-image {
@@ -453,6 +653,95 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    
+    /* ========================================
+       HERO BACKDROP - Gradient Orbs
+       ======================================== */
+    .hero-backdrop {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--accent-primary);
+      top: -200px;
+      right: -100px;
+      animation-delay: 0s;
+    }
+    
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--accent-secondary);
+      bottom: -100px;
+      left: -100px;
+      animation-delay: -10s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .gradient-orb {
+        animation: none;
+      }
+    }
+    
+    .image-frame {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+    
+    .greeting {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-body);
+      margin-bottom: 1rem;
+    }
+    
+    .description {
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 540px;
+    }
+    
+    .description strong {
+      color: var(--text-heading);
+      font-weight: 600;
     }
     
     /* Technical Bridge */
@@ -538,20 +827,51 @@
       }
     }
     
+    /* ========================================
+       CARDS - Glassmorphism Design
+       ======================================== */
     .skill-card {
+      position: relative;
       background: var(--bg-card);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
       display: flex;
       flex-direction: column;
       transition: all var(--transition);
+      overflow: hidden;
+    }
+    
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: var(--accent-gradient);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity var(--transition);
     }
     
     .skill-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--accent);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
+    
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+    
+    .skill-card:focus-within {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 4px;
     }
     
     .skill-icon {
@@ -590,6 +910,13 @@
       margin-bottom: 1.5rem;
     }
     
+    .skill-description {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
     .skill-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -601,32 +928,51 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
+      color: var(--text-body);
+      padding: 0.25rem 0;
     }
     
-    .skill-item span:first-child {
-      font-size: 1rem;
+    .skill-icon-sm {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      color: var(--accent-primary);
     }
     
-    /* Contact */
+    /* ========================================
+       CONTACT - Redesigned (Theme-aware)
+       ======================================== */
     .contact {
-      background: #0d1117;
-      color: #8b949e;
+      background: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
     }
     
-    .contact h2 {
-      color: #f0f6fc;
+    .contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent-gradient);
+      opacity: 0.03;
+      pointer-events: none;
     }
     
     .contact-header {
       text-align: center;
       max-width: 700px;
       margin: 0 auto 3rem;
+      position: relative;
+      z-index: 1;
     }
     
     .contact-header h2 {
       font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .contact-links {
@@ -634,6 +980,8 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
     
     .contact-btn {
@@ -641,22 +989,32 @@
       align-items: center;
       gap: 0.75rem;
       padding: 1rem 1.5rem;
-      background: #1c2128;
-      color: #f0f6fc;
-      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      color: var(--text-heading);
+      border-radius: var(--radius-lg);
       font-weight: 500;
       transition: all var(--transition);
-      border: 1px solid #30363d;
+      border: 1px solid var(--border);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
     }
     
     .contact-btn:hover {
-      background: #30363d;
+      background: var(--bg-surface);
       transform: translateY(-2px);
-      border-color: #3b82f6;
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-glow);
     }
     
-    .contact-btn span:first-child {
-      font-size: 1.25rem;
+    .contact-btn:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+    
+    .contact-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--accent-primary);
     }
     
     /* Footer */
@@ -697,6 +1055,7 @@
   </style>
 </head>
 <body>
+  <a href="#about" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar-container">
       <a href="#" class="logo" aria-label="Home">MN.</a>
@@ -727,25 +1086,46 @@
     </div>
   </nav>
 
-  <section class="hero" id="about">
+  <section class="hero" id="about" aria-labelledby="hero-heading">
+    <div class="hero-backdrop" aria-hidden="true">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content reveal">
-          <span class="badge">Sales Engineer · Bravo Technology (Z) Ltd</span>
-          <h1>
+          <span class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Available for opportunities
+          </span>
+          
+          <p class="greeting">Hi, I'm</p>
+          <h1 id="hero-heading">
             Mweetwa Mweembo
             <span class="accent">Nketani</span>
           </h1>
-          <p class="subheadline">Bridging the gap between complex technical architecture and strategic business value.</p>
-          <p>Sales Engineer at Bravo Technology (Z) Ltd, specialising in SCADA, IoT, fleet telematics, and network infrastructure. I don't just explain how technology works — I demonstrate why it matters to your bottom line.</p>
+          
+          <p class="tagline">Sales Engineer bridging technical complexity and business value</p>
+          
+          <p class="description">At <strong>Bravo Technology (Z) Ltd</strong>, I specialize in SCADA systems, IoT implementations, and fleet telematics — turning technical architecture into measurable ROI for mining and utility clients.</p>
+          
           <div class="btn-group">
-            <a href="#contact" class="btn btn-primary pulse-glow">Get in Touch</a>
-            <a href="#skills" class="btn btn-secondary">Learn More</a>
+            <a href="#contact" class="btn btn-primary">
+              Schedule a Call
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            <a href="#skills" class="btn btn-secondary">View Expertise</a>
           </div>
         </div>
-        <div class="hero-image reveal">
-          <img src="https://file.notion.so/f/f/ca87fe6c-0522-4ef9-8be1-a6769345ef0e/b1fa29fb-9ff3-4855-a4f2-e8c37873600f/photo_2026-04-02_17-09-27.jpg?table=block&id=c9d90a76-30e3-43db-9dea-4112100f0051&spaceId=ca87fe6c-0522-4ef9-8be1-a6769345ef0e&expirationTimestamp=1776549600000&signature=XXfQaxDFHbXzQmh7rdu9RoOuhFdLGXQzDg4a3ERtpD8&downloadName=photo_2026-04-02_17-09-27.jpg" alt="Mweetwa Mweembo Nketani - Sales Engineer" loading="eager" decoding="async">
-        </div>
+        
+        <figure class="hero-image reveal">
+          <div class="image-frame">
+            <img src="https://file.notion.so/f/f/ca87fe6c-0522-4ef9-8be1-a6769345ef0e/b1fa29fb-9ff3-4855-a4f2-e8c37873600f/photo_2026-04-02_17-09-27.jpg?table=block&id=c9d90a76-30e3-43db-9dea-4112100f0051&spaceId=ca87fe6c-0522-4ef9-8be1-a6769345ef0e&expirationTimestamp=1776549600000&signature=XXfQaxDFHbXzQmh7rdu9RoOuhFdLGXQzDg4a3ERtpD8&downloadName=photo_2026-04-02_17-09-27.jpg" alt="Portrait of Mweetwa Nketani, Sales Engineer" loading="eager" decoding="async">
+          </div>
+        </figure>
       </div>
     </div>
   </section>
@@ -766,69 +1146,135 @@
     </div>
   </section>
 
-  <section class="skills" id="skills">
+  <section class="skills" id="skills" aria-labelledby="skills-heading">
     <div class="container">
-      <div class="skills-header reveal">
-        <h2>Expertise & Skills</h2>
-        <p>A balanced toolkit designed for the modern sales cycle — combining deep technical fluency with commercial intuition.</p>
-      </div>
+      <header class="skills-header reveal">
+        <h2 id="skills-heading">Technical Expertise</h2>
+        <p>Deep technical fluency paired with commercial intuition</p>
+      </header>
       
       <div class="skills-grid">
-        <div class="skill-card reveal">
-          <div class="skill-icon blue" aria-hidden="true">&lt;/&gt;</div>
+        <article class="skill-card reveal">
+          <div class="skill-icon blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+          </div>
           <h3>Technical Foundation</h3>
+          <p class="skill-description">Core infrastructure and integration expertise for mission-critical systems</p>
           <div class="skill-list">
-            <div class="skill-item"><span>⚙️</span> SCADA Integration</div>
-            <div class="skill-item"><span>📡</span> IoT Sensor Systems</div>
-            <div class="skill-item"><span>🛰️</span> Fleet Telematics (FMU130)</div>
-            <div class="skill-item"><span>🌐</span> Network Infrastructure</div>
-            <div class="skill-item"><span>🐧</span> Linux Systems</div>
-            <div class="skill-item"><span>🔌</span> CCTV & Surveillance</div>
-            <div class="skill-item"><span>🐍</span> Python & Scripting</div>
-            <div class="skill-item"><span>🗄️</span> SQL & PostgreSQL</div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+              SCADA Integration
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0"/></svg>
+              IoT Sensor Systems
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+              Fleet Telematics
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Network Infrastructure
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+              Linux Systems
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              CCTV & Surveillance
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+              Python & Scripting
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+              SQL & PostgreSQL
+            </div>
           </div>
-        </div>
+        </article>
         
-        <div class="skill-card reveal">
-          <div class="skill-icon grey" aria-hidden="true">👥</div>
-          <h3>Sales Engineering</h3>
-          <div class="skill-list">
-            <div class="skill-item"><span>🎯</span> Technical Discovery</div>
-            <div class="skill-item"><span>🖥️</span> Product Storytelling</div>
-            <div class="skill-item"><span>🤝</span> Objection Handling</div>
-            <div class="skill-item"><span>💡</span> Business Acumen</div>
-            <div class="skill-item"><span>🏗️</span> Solution Architecture</div>
-            <div class="skill-item"><span>📄</span> Technical Documentation</div>
-            <div class="skill-item"><span>👥</span> Stakeholder Management</div>
-            <div class="skill-item"><span>🔁</span> Cross-functional Collaboration</div>
+        <article class="skill-card reveal">
+          <div class="skill-icon grey" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.592-2.641m-7.032 4.628c.982.513 2.1.815 3.282.815 3.024 0 5.594-1.692 6.813-4.146M6.375 15.128a3.375 3.375 0 016.75 0m-9.375 0a3.375 3.375 0 116.75 0" />
+            </svg>
           </div>
-        </div>
+          <h3>Sales Engineering</h3>
+          <p class="skill-description">Commercial capabilities that drive technical solutions to business outcomes</p>
+          <div class="skill-list">
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              Technical Discovery
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              Product Storytelling
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Objection Handling
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              Business Acumen
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              Solution Architecture
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Technical Documentation
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              Stakeholder Management
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Cross-functional Collaboration
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="contact-header reveal">
-        <h2>Let's build something together.</h2>
+        <h2 id="contact-heading">Let's build something together.</h2>
         <p>Whether you're looking for a technical partner for your sales team or want to discuss SCADA, IoT, or telematics solutions in the mining and utilities sectors — I'm always open to new connections.</p>
       </div>
       
       <div class="contact-links reveal">
         <a href="tel:+260777977163" class="contact-btn">
-          <span>📞</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
           <span>+260 77 7977163</span>
         </a>
         <a href="mailto:mweetwanketani@gmail.com" class="contact-btn">
-          <span>✉️</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
           <span>Email Me</span>
         </a>
         <a href="https://www.linkedin.com/in/mweetwa-nketani-a62825212/" class="contact-btn" target="_blank" rel="noopener noreferrer">
-          <span>💼</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
           <span>LinkedIn</span>
         </a>
         <a href="https://github.com/N3gus" class="contact-btn" target="_blank" rel="noopener noreferrer">
-          <span>🐙</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
           <span>GitHub</span>
         </a>
       </div>
@@ -842,10 +1288,21 @@
   </footer>
 
   <script>
-    // Theme Toggle
+    /* ========================================
+       THEME MANAGEMENT
+       ======================================== */
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const html = document.documentElement;
+    
+    // Icons as SVG for better accessibility
+    const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`;
+    const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+    
+    function updateThemeIcon(isDark) {
+      themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
     
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
@@ -853,42 +1310,96 @@
     
     if (savedTheme) {
       html.setAttribute('data-theme', savedTheme);
-      themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      updateThemeIcon(savedTheme === 'dark');
     } else if (prefersDark) {
       html.setAttribute('data-theme', 'dark');
-      themeIcon.textContent = '☀️';
+      updateThemeIcon(true);
+    } else {
+      updateThemeIcon(false);
     }
     
     themeToggle.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', newTheme);
-      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      updateThemeIcon(newTheme === 'dark');
       localStorage.setItem('theme', newTheme);
     });
     
-    // Mobile Menu
+    /* ========================================
+       MOBILE MENU WITH FOCUS TRAP
+       ======================================== */
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
+    let focusableElements, firstFocusable, lastFocusable;
+    
+    function getFocusableElements() {
+      return mobileMenu.querySelectorAll(
+        'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+      );
+    }
+    
+    function trapFocus(e) {
+      if (e.key !== 'Tab') return;
+      
+      if (e.shiftKey && document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+    
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
+      
+      // Trap focus
+      focusableElements = getFocusableElements();
+      firstFocusable = focusableElements[0];
+      lastFocusable = focusableElements[focusableElements.length - 1];
+      mobileMenu.addEventListener('keydown', trapFocus);
+      
+      // Focus first element
+      setTimeout(() => firstFocusable?.focus(), 100);
+    }
+    
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
+      mobileMenu.removeEventListener('keydown', trapFocus);
+      hamburger.focus();
+    }
     
     hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
+      if (mobileMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
     
     // Close mobile menu when clicking a link
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', closeMenu);
     });
     
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
     
-    window.addEventListener('scroll', { passive: true }, () => {
+    /* ========================================
+       NAVBAR SCROLL EFFECTS
+       ======================================== */
+    const navbar = document.querySelector('.navbar');
+    
+    function updateNavbar() {
       const currentScroll = window.pageYOffset;
       
       if (currentScroll > 50) {
@@ -897,18 +1408,24 @@
         navbar.classList.remove('scrolled');
       }
       
-      lastScroll = currentScroll;
-    });
+      // Scroll progress indicator
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (currentScroll / docHeight) * 100;
+      navbar.style.setProperty('--scroll-progress', `${scrollPercent}%`);
+    }
     
-    // Scroll reveal animation (re-animates on scroll)
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+    
+    /* ========================================
+       SCROLL REVEAL ANIMATION
+       ======================================== */
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
         }
       });
     }, {
@@ -917,6 +1434,40 @@
     });
     
     revealElements.forEach(el => revealObserver.observe(el));
+    
+    /* ========================================
+       BUTTON RIPPLE EFFECT
+       ======================================== */
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        button.style.setProperty('--x', `${x}%`);
+        button.style.setProperty('--y', `${y}%`);
+      });
+    });
+    
+    /* ========================================
+       SMOOTH SCROLL FOR ANCHOR LINKS
+       ======================================== */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Update URL without jump
+          history.pushState(null, '', targetId);
+        }
+      });
+    });
   </script>
 </body>
 </html>
