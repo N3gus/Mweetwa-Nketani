@@ -21,7 +21,7 @@
       "@type": "Organization",
       "name": "Bravo Technology (Z) Ltd"
     },
-    "knowsAbout": ["SCADA", "IoT", "Fleet Telematics", "Network Infrastructure", "Sales Engineering"],
+    "knowsAbout": ["SCADA", "IoT", "Fleet Telematics", "Network Infrastructure", "Sales Engineering", "Digital Transformation"],
     "sameAs": [
       "https://www.linkedin.com/in/mweetwa-nketani-a62825212/",
       "https://github.com/N3gus"
@@ -956,6 +956,100 @@
       }
     }
     
+    /* Credentials Section */
+    .credentials {
+      background: var(--bg-primary);
+    }
+
+    .credentials-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .credentials-header {
+        margin-bottom: 3.5rem;
+      }
+    }
+
+    .credentials-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .credentials-header p {
+      color: var(--text-body);
+      font-size: 1.125rem;
+    }
+
+    .credentials-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    @media (min-width: 640px) {
+      .credentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .credentials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .credential-card {
+      position: relative;
+      background: var(--bg-card);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .credential-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: var(--accent-gradient);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .credential-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      border-color: transparent;
+    }
+
+    .credential-card:hover::before {
+      opacity: 1;
+    }
+
+    .credential-card iframe {
+      border: none;
+      border-radius: var(--radius);
+    }
+
     /* Skills - Bento Grid Layout */
     .skills {
       background: var(--bg-primary);
@@ -1334,6 +1428,7 @@
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
+          <a href="#credentials">Credentials</a>
           <a href="#contact">Contact</a>
         </div>
         
@@ -1352,6 +1447,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -1376,9 +1472,9 @@
             <span class="accent">Nketani</span>
           </h1>
           
-          <p class="tagline">Sales Engineer bridging technical complexity and business value</p>
+          <p class="tagline">Sales Engineer bridging technical complexity and business value through digital transformation</p>
           
-          <p class="description">At <a href="https://bravotechafrica.com" target="_blank" rel="noopener noreferrer" class="company-link"><strong>Bravo Technology (Z) Ltd</strong></a>, I specialize in SCADA systems, IoT implementations, and fleet telematics — turning technical architecture into measurable ROI for mining and utility clients.</p>
+          <p class="description">At <a href="https://bravotechafrica.com" target="_blank" rel="noopener noreferrer" class="company-link"><strong>Bravo Technology (Z) Ltd</strong></a>, I specialize in SCADA systems, IoT implementations, and digital transformation — turning technical architecture into measurable ROI for mining and utility clients.</p>
           
           <div class="btn-group">
             <a href="#contact" class="btn btn-primary">
@@ -1458,6 +1554,10 @@
             <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
               Fleet Telematics
+            </div>
+            <div class="skill-item">
+              <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Digital Transformation
             </div>
             <div class="skill-item">
               <svg class="skill-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -1561,6 +1661,21 @@
     </div>
   </section>
 
+  <section class="credentials" id="credentials" aria-labelledby="credentials-heading">
+    <div class="container">
+      <header class="credentials-header reveal">
+        <h2 id="credentials-heading">Credentials & Certifications</h2>
+        <p>Professional certifications and credentials validating expertise</p>
+      </header>
+      
+      <div class="credentials-grid">
+        <article class="credential-card reveal" data-delay="0">
+          <div data-iframe-width="180" data-iframe-height="320" data-share-badge-id="8857837f-0825-4a5c-afba-a690b340c735" data-share-badge-host="https://www.credly.com"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact" aria-labelledby="contact-heading">
     <div class="container">
       <div class="contact-header reveal">
@@ -1608,6 +1723,8 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
     </svg>
   </button>
+
+  <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 
   <script>
     /* ========================================
